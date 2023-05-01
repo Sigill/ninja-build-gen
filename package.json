@@ -1,6 +1,7 @@
 {
   "name": "ninja-build-gen",
   "version": "0.2.2",
+  "type": "module",
   "description": "Programmatically create Ninja build-system files",
   "keywords": [
     "ninja",
@@ -12,16 +13,15 @@
   ],
   "homepage": "https://github.com/jeanlauliac/ninja-build-gen",
   "bugs": "https://github.com/jeanlauliac/ninja-build-gen/issues",
-  "license": {
-    "type": "MIT",
-    "url": "https://raw.github.com/jeanlauliac/ninja-build-gen/master/LICENSE"
-  },
+  "license": "MIT",
   "author": "Jean Lauliac <jean@lauliac.com>",
   "contributors": [
     "Tylor Reynolds"
   ],
   "files": [
-    "lib"
+    "lib/ninja-build-gen.d.ts",
+    "lib/ninja-build-gen.js",
+    "lib/ninja-build-gen.js.map"
   ],
   "main": "lib/ninja-build-gen.js",
   "repository": {
@@ -29,25 +29,26 @@
     "url": "git://github.com/jeanlauliac/ninja-build-gen.git"
   },
   "scripts": {
-    "prepublish": "grunt",
-    "test": "mocha"
-  },
-  "dependencies": {
-    "source-map-support": "^0.4.0"
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "test": "mocha",
+    "test:watch": "nodemon --watch lib/ --ext js --exec 'npx mocha'",
+    "lint": "npx eslint source/"
   },
   "devDependencies": {
-    "coffee-script": "~1.6.3",
-    "coffeelint": "~0.5.6",
-    "grunt": "~0.4.1",
-    "grunt-cli": "^1.2.0",
-    "grunt-coffeelint": "0.0.7",
-    "grunt-contrib-coffee": "~0.7.0",
-    "grunt-mocha": "~0.3.4",
-    "grunt-mocha-test": "~0.5.0",
-    "matchdep": "~0.1.1",
-    "mocha": "~1.12.0"
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.16.3",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "eslint": "^8.39.0",
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.22",
+    "typescript": "^5.0.4"
   },
   "engines": {
     "node": ">=0.8.0"
+  },
+  "mocha": {
+    "file": ["lib/test.js"],
+    "node-option": ["enable-source-maps"]
   }
 }

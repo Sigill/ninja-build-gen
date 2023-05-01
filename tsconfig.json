@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./source",
+    "lib": [
+      "ES2021"
+    ],
+    "target": "ES2021",
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./lib/",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+  },
+  "files": [
+    "source/ninja-build-gen.ts",
+    "source/test.ts"
+  ],
+  "exclude": [
+    "./lib/**/*"
+  ]
+}
